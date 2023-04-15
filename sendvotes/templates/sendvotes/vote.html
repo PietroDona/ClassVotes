@@ -7,16 +7,24 @@
     </head>
     <body>
         <h1>{{ question.title }}</h1>
+        <div id="votes">
+            {% for option in options %}
 
-        {% for option in options %}
+            <button
+                id="option_{{option.id}}"
+                data-optionId="{{option.id}}"
+                data-questionId="{{question.id}}"
+                type="button"
+            >
+                {{option.option}}
+            </button>
 
-        <div>{{option.option}}</div>
-
-        {% endfor %}
-
+            {% endfor %}
+        </div>
+        <div id="alert">Vote Submitted</div>
         <script
             type="text/javascript"
-            src="{% static 'sendvote/sendvote.js' %}"
+            src="{% static 'sendvotes/sendvote.js' %}"
         ></script>
     </body>
 </html>
