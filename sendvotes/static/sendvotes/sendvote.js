@@ -3,7 +3,13 @@ const votes = document.querySelectorAll('#votes>button');
 votes.forEach((option) => {
     const questionId = option.getAttribute('data-questionId');
     const optionId = option.getAttribute('data-optionId');
-    option.addEventListener('click', () => send_vote(questionId, optionId));
+    option.addEventListener('click', (e) => {
+        send_vote(questionId, optionId);
+        votes.forEach((b) => {
+            b.removeAttribute('data-clicked');
+        });
+        e.target.setAttribute('data-clicked', true);
+    });
 });
 
 function send_vote(questionId, optionId) {

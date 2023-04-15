@@ -4,10 +4,14 @@
     <head>
         <meta charset="UTF-8" />
         <title>Question</title>
+        <link rel="stylesheet" href="{% static 'sendvotes/sendvote.css' %}" />
     </head>
     <body>
-        <h1>{{ question.title }}</h1>
-        <div id="votes">
+
+        <div class="wrapper">
+            <header class="header">{{ question.title }}<header>
+            <main id="votes" class="votes-area">
+
             {% for option in options %}
 
             <button
@@ -15,13 +19,19 @@
                 data-optionId="{{option.id}}"
                 data-questionId="{{question.id}}"
                 type="button"
+                class="votes-item"
+                {% if current == option %}
+                    data-clicked="true"
+                {% endif %}
             >
                 {{option.option}}
             </button>
 
             {% endfor %}
+
+            </main>
         </div>
-        <div id="alert">Vote Submitted</div>
+
         <script
             type="text/javascript"
             src="{% static 'sendvotes/sendvote.js' %}"
