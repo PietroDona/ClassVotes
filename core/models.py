@@ -8,7 +8,7 @@ class Question(models.Model):
     text = models.TextField()
 
 
-class QuestionOptions(models.Model):
+class QuestionOption(models.Model):
     option = models.CharField(max_length=100)
     question = models.ForeignKey(
         Question, related_name='options', on_delete=models.CASCADE)
@@ -19,4 +19,5 @@ class Vote(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
     question = models.ForeignKey(
         Question, related_name='votes', on_delete=models.CASCADE)
-    content = models.ForeignKey(QuestionOptions, on_delete=models.CASCADE)
+    content = models.ForeignKey(
+        QuestionOption, on_delete=models.CASCADE, null=True)
