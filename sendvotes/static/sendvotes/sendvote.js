@@ -9,13 +9,7 @@ votes.forEach((option) => {
 function send_vote(questionId, optionId) {
     const url = `http://127.0.0.1:8000/sendvotes/${questionId}/${optionId}/register`;
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'X-CSRFToken': getCookie('csrftoken'),
-            'Content-Type': 'application/json',
-        },
-    }).then((res) => {
+    fetch(url).then((res) => {
         console.log(res);
         document.getElementById('alert').innerText = res.vote;
     });

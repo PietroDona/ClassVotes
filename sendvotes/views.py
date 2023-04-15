@@ -13,7 +13,10 @@ def sendvote(request, question_id):
 
 
 def registervote(request, question_id, option_id):
+    if not request.session.session_key:
+        request.session.save()
     user_session_key = request.session.session_key
+    print(user_session_key)
     question = Question.objects.get(id=question_id)
     vote, _ = Vote.objects.get_or_create(
         student=user_session_key, question=question)

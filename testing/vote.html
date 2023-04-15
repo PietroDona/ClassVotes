@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Question</title>
+        <link rel="stylesheet" href="vote.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">Fruit<header>
+            <main id="votes" class="votes-area">
+                <button
+                    id="option_1"
+                    data-optionId="1"
+                    data-questionId="1"
+                    type="button"
+                    class="votes-item"
+                >
+                    Banana
+                </button>
+
+                <button
+                    id="option_2"
+                    data-optionId="2"
+                    data-questionId="2"
+                    type="button"
+                    class="votes-item"
+                >
+                    Peach
+                </button>
+
+                <button
+                    id="option_3"
+                    data-optionId="3"
+                    data-questionId="3"
+                    type="button"
+                    class="votes-item"
+                >
+                    Strawberry
+                </button>
+
+                <button
+                    id="option_4"
+                    data-optionId="4"
+                    data-questionId="4"
+                    type="button"
+                    class="votes-item"
+                >
+                    Cherry
+                </button>
+            </main>
+        </div>
+        <div id="alert">Vote Submitted</div>
+
+        <script>
+            const buttons = document.querySelectorAll(".votes-area > button");
+
+            buttons.forEach((b)=>{
+                b.addEventListener("click",()=>{
+                    
+                })
+            })
+        </script>
+    </body>
+</html>

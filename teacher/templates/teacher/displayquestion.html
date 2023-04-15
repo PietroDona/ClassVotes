@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Question</title>
+        <script
+            src="https://cdn.plot.ly/plotly-2.20.0.min.js"
+            charset="utf-8"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    </head>
+    <body>
+        <h1>{{ question.title }}</h1>
+        <div id="content">{{ question.text }}</div>
+
+        <canvas id="qrcode"></canvas>
+
+        <div id="plot"></div>
+        <script
+            type="text/javascript"
+            src="{% static 'teacher/realoadgraph.js' %}"
+        ></script>
+
+        <script type="text/javascript">
+            new QRious({
+                element: document.getElementById('qrcode'),
+                value: "http://127.0.0.1:8000{% url 'vote' question.id %}",
+            });
+        </script>
+    </body>
+</html>
