@@ -1,34 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-button {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
-
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #c3c3fc;
-}
-::selection {
-    color: #fff;
-    background: #6665ee;
-}
 .wrapper {
-    background: #fff;
+    background: white;
     border-radius: 1rem;
     padding: 2rem;
     max-width: 30rem;
@@ -47,7 +18,7 @@ body {
 }
 
 .wrapper .votes-area .votes-item {
-    border: 1pt solid #6665ee;
+    border: 1pt solid var(--primary-color);
     padding: 1rem;
     border-radius: 1rem;
     font-size: 1.25rem;
@@ -55,6 +26,6 @@ body {
 }
 
 .wrapper .votes-area .votes-item[data-clicked] {
-    background: #6665ee;
-    color: #c3c3fc;
+    background: var(--primary-color);
+    color: var(--neutral);
 }

@@ -4,19 +4,33 @@
     <head>
         <meta charset="UTF-8" />
         <title>Question</title>
-        <script
-            src="https://cdn.plot.ly/plotly-2.20.0.min.js"
-            charset="utf-8"
-        ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+        <link rel="stylesheet" href="{% static 'core/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'teacher/display.css' %}" />
     </head>
     <body>
-        <h1>{{ question.title }}</h1>
-        <div id="content">{{ question.text }}</div>
+        <div class="wrapper">
+            <header data-questionid="{{question.id}}">
+                {{ question.title }}
+            </header>
+            <main id="content" class="question">
+                <section class="question-description">
+                    {{ question.text }}
+                </section>
+                <section class="question-choices">
+                    {% for option in options %}
+                    <div class="question-item" data-option="{{option.option}}">
+                        <span>{{option.option}}</span>
+                        <div class="progress"></div>
+                        <div class="toast"></div>
+                    </div>
+                    {% endfor %}
+                </section>
+            </main>
 
-        <canvas id="qrcode"></canvas>
+            <canvas id="qrcode"></canvas>
+        </div>
 
-        <div id="plot"></div>
         <script
             type="text/javascript"
             src="{% static 'teacher/realoadgraph.js' %}"

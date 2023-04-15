@@ -8,7 +8,8 @@ from core.models import Question
 
 def displayquestion(request, question_id):
     question = Question.objects.get(id=question_id)
-    context = {"question": question}
+    options = question.options.all()
+    context = {"question": question, "options": options}
     return render(request, "teacher/displayquestion.html", context)
 
 
@@ -20,4 +21,6 @@ def dataquestion(request, question_id):
     test = {o.option: votes.filter(content=o).aggregate(
         Count("id")).get("id__count") for o in options}
 
-    return JsonResponse({"data": test})
+    total = sum(test.values())
+
+    return JsonResponse({"data": test, "total": total})
