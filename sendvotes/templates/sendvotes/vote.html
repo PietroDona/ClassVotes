@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Question</title>
+    </head>
+    <body>
+        <h1>{{ question.title }}</h1>
+
+        {% for option in options %}
+
+        <div>{{option.option}}</div>
+
+        {% endfor %}
+    </body>
+</html>
