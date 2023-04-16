@@ -25,16 +25,3 @@ function get_votes(qid) {
             }
         });
 }
-
-var myTimer = setInterval(function () {
-    get_votes(questionid);
-}, 4000);
-
-window.MathJax = {
-    tex: {
-        inlineMath: [
-            ['$', '$'],
-            ['\\(', '\\)'],
-        ],
-    },
-};

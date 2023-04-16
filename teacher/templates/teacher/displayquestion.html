@@ -47,6 +47,20 @@
                 element: document.getElementById('qrcode'),
                 value: "http://127.0.0.1:8000{% url 'vote' question.id %}",
             });
+
+            var myTimer = setInterval(function () {
+                get_votes(questionid);
+            }, 4000);
+
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ['$', '$'],
+                        ['\\(', '\\)'],
+                    ],
+                },
+                loader: { load: ['input/tex', 'output/svg'] },
+            };
         </script>
     </body>
 </html>
