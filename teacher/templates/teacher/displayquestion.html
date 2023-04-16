@@ -23,6 +23,10 @@
                 <section class="question-description">
                     {{ question.text }}
                 </section>
+                <img
+                    src="/static/img/{{question.image}}"
+                    class="question-image"
+                />
                 <section class="question-choices">
                     {% for option in options %}
                     <div class="question-item" data-option="{{option.option}}">

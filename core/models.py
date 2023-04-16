@@ -6,6 +6,7 @@ from django.db import models
 class Question(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
+    image = models.CharField(max_length=100, null=True)
 
     def __repr__(self) -> str:
         return f"Question: {self.title}"

@@ -22,6 +22,11 @@
     gap: 2rem;
 }
 
+.wrapper .question .question-image {
+    width: 40rem;
+    margin: auto;
+}
+
 .wrapper .question-description {
     text-align: justify;
 }
